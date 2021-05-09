@@ -30,6 +30,7 @@ def main():
 
     data_transforms = transforms.Compose([
         transforms.ToTensor(),
+        transforms.Resize((Net.input_dim, Net.input_dim)),
         transforms.Normalize((0, 0, 0), tuple(np.sqrt((255, 255, 255)))),
     ])
     train_set = torchvision.datasets.ImageFolder(data_dir / 'train', data_transforms)
