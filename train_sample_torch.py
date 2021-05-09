@@ -28,8 +28,11 @@ def main():
     im_width = 64
     num_epochs = 1
 
+
+
     data_transforms = transforms.Compose([
         transforms.ToTensor(),
+        transforms.AutoAugment(transforms.AutoAugmentPolicy.IMAGENET),
         transforms.Resize((Net.input_dim, Net.input_dim)),
         transforms.Normalize((0, 0, 0), tuple(np.sqrt((255, 255, 255)))),
     ])
